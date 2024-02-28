@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <script>
+        let variavel = prompt("Insira um número inteiro positivo: ");
+        let numero = parseInt(variavel);
+
+        if (numero > 1 && Number.isInteger(numero)) {
+            let primo = true;
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) {
+                    primo = false;
+                    break;
+                }
+            }
+            if (primo) {
+                alert(numero + " é primo.");
+            } else {
+                alert(numero + " não é primo.");
+            }
+        } else {
+            alert("insira um número válido.");
+        }
+        window.history.back();
+    </script>
+</body>
+</html>
