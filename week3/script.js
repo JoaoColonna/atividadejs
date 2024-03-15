@@ -54,12 +54,22 @@ function returnPalindromo() {
 }
 
 function ePalindromo(str) {
-    let j = str.length - 1
-    for (let i = 0; i < str.length / 2; i++) {
-        if (str[i] != str[j]) {
-            return "Não é um palíndromo";
-        }
-        j--;
-    }
-    return "É palíndromo";
+    console.log(str);
+
+    str = str.replace(/[áàãâ]/gi, 'a');
+    str = str.replace(/[éèê]/gi, 'e');
+    str = str.replace(/[íìî]/gi, 'i');
+    str = str.replace(/[óòõô]/gi, 'o');
+    str = str.replace(/[úùû]/gi, 'u');
+    str = str.replace(/\s|[^\w\s]/gi, '');
+    str = str.toLowerCase();
+    str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    console.log(str);
+
+    var reversedStr = str.split('').reverse().join('');
+    if (str === reversedStr) {
+        return "É palíndromo";
+    } 
+    return "Não é um palíndromo";
 }
