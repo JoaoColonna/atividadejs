@@ -41,6 +41,7 @@ function gerarRegistro(){
         console.log(professor);
         alert("Registro inserido com sucesso!\n" + professor.MostrarInformacoes());
     }
+    alert("Você pode ver o registro do Objeto no Console do navegador.");
 }
 
 function Pessoa () {
