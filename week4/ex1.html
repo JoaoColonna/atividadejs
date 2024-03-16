@@ -12,88 +12,91 @@
     </style>
 </head>
 <body>
-    <div class="container">     
+    <div class="container">   
         <div class="mb-3"><a href="week4.html" class="btn btn-primary">Voltar</a></div>
-        <div class="mb-3">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" class="form-control" placeholder="Insira o nome completo aqui..." >
-        </div>
-        <div class="row mt-4">
-            <div class="col">
-                <div class="mb-6">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Insira o email aqui" >
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="mb-4">
-                    <label for="telefoneFixo">Telefone Fixo</label>
-                    <input type="tel" id="telefoneFixo" class="form-control" placeholder="Insira o telefone fixo aqui" >
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="mb-4">
-                    <label for="TelefoneCelular">Telefone Celular</label>
-                    <input type="tel" id="TelefoneCelular" class="form-control" placeholder="Insira o telefone celular aqui">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="mb-4">
-                    <label for="dataNasc">Data de Nascimento</label>
-                    <input type="date" id="dataNasc" class="form-control" >
-                </div>
-            </div>
+        <form action="script.js" method="post">
+
             <div class="mb-3">
-                <fieldset>
-                    <div class="form-check">
-                        <input type="radio" name="tipoUser" id="aluno" class="form-check-input" onclick="setTipoUsuario('aluno')" >
-                        <label for="aluno" class="form-check-label">Aluno</label>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" class="form-control" placeholder="Insira o nome completo aqui..." required>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="mb-6">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Insira o email aqui" required>
                     </div>
-                    <div class="form-check">
-                        <input type="radio" name="tipoUser" id="professor" class="form-check-input" onclick="setTipoUsuario('professor')">
-                        <label for="professor" class="form-check-label">Professor</label>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label for="telefoneFixo">Telefone Fixo</label>
+                        <input type="tel" id="telefoneFixo" class="form-control" placeholder="Insira o telefone fixo aqui" >
                     </div>
-                </fieldset>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col" id="areaProfessor" style="display: none;">
-                <div class="md-5">
-                    <label for="area">Área</label>
-                    <input type="text" id="area" class="form-control" placeholder="Insira a área de atuação aqui" >
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label for="TelefoneCelular">Telefone Celular</label>
+                        <input type="tel" id="telefoneCelular" class="form-control" placeholder="Insira o telefone celular aqui" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label for="dataNasc">Data de Nascimento</label>
+                        <input type="date" id="dataNasc" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <fieldset>
+                        <div class="form-check">
+                            <input type="radio" name="tipoUser" id="aluno" class="form-check-input" onclick="setTipoUsuario('aluno')" checked>
+                            <label for="aluno" class="form-check-label">Aluno</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="tipoUser" id="professor" class="form-check-input" onclick="setTipoUsuario('professor')">
+                            <label for="professor" class="form-check-label">Professor</label>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
-            <div class="col" style="display: none;" id="cursoAluno">
-                <div class="md-5">
-                    <label for="curso">Curso</label>
-                    <input type="text" id="curso" class="form-control" placeholder="Insira a o nome do curso aqui" >
+            <div class="row mt-4">
+                <div class="col" id="areaProfessor" style="display: none;">
+                    <div class="md-5">
+                        <label for="area">Área de Atuação</label>
+                        <input type="text" id="area" class="form-control" placeholder="Insira a área de atuação aqui">
+                    </div>
+                </div>
+                <div class="col" style="display: none;" id="cursoAluno">
+                    <div class="md-5">
+                        <label for="curso">Curso</label>
+                        <input type="text" id="curso" class="form-control" placeholder="Insira a o nome do curso aqui" >
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-5">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" class="form-control" placeholder="Insira a sua matrícula aqui" required>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="md-5">
-                    <label for="matricula">Matrícula</label>
-                    <input type="text" id="matricula" class="form-control" placeholder="Insira a sua matrícula aqui" required>
+            <div class="md-3 mt-3" style="display: none;" id="divLattes">
+                <label for="lattes">Lattes</label>
+                <input type="text" id="lattes" class="form-control" placeholder="Insira o link do seu currículo Lattes aqui" >
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="mb-5">
+                        <input type="button" value="Enviar" class="btn btn-primary " onclick="gerarRegistro()">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-5">
+                        <input type="reset" value="Redefinir" class="btn btn-secondary">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="md-3 mt-3" style="display: none;" id="divLattes">
-            <label for="lattes">Lattes</label>
-            <input type="text" id="lattes" class="form-control" placeholder="Insira o link do seu currículo Lattes aqui" >
-        </div>
-        <div class="row mt-4">
-            <div class="col">
-                <div class="mb-5">
-                    <input type="button" value="Enviar" class="btn btn-primary ">
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-5">
-                    <input type="button" value="Redefinir" class="btn btn-secondary" onclick="limparInputs()">
-                </div>
-            </div>
-        </div>
+        </form>  
     </div>
     <script src="script.js"></script>
 </body>
