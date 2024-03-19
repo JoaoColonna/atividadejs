@@ -13,7 +13,7 @@ function setTipoUsuario(param){
     }
 }
 
-const handlePhone = (event) => {
+const alterarNumero = (event) => {
   let input = event.target
   input.value = phoneMask(input.value)
 }
@@ -27,34 +27,50 @@ const phoneMask = (value) => {
 }
 
 function gerarRegistro(){
+
     let tipoPessoa = document.getElementById('aluno');
-    if(tipoPessoa.checked == true){
-        let aluno = new Aluno();
-        aluno.setNome(document.getElementById('nome').value);
-        aluno.setEmail(document.getElementById('email').value);
-        aluno.setTelefoneFixo(document.getElementById('telefoneFixo').value);
-        aluno.setTelefoneCelular(document.getElementById('telefoneCelular').value);
-        aluno.setDataNasc(document.getElementById('dataNasc').value);
-        aluno.setMatricula(document.getElementById('matricula').value);
-        aluno.setCurso(document.getElementById('curso').value);
 
-        console.log(aluno);
-        alert("Registro inserido com sucesso!\n" + aluno.MostrarInformacoes());
+    let nome = document.getElementById('nome');
+    let email = document.getElementById('email');
+    let telefoneFixo = document.getElementById('telefoneFixo')
+    let telefoneCelular = document.getElementById('telefoneCelular');
+    let dataNasc = document.getElementById('dataNasc');
+    let matricula = document.getElementById('matricula');
+
+    if (nome.value !== "" && email.value !== "" && telefoneFixo.value !== "" && telefoneCelular.value !== "" && dataNasc.value !== "" && matricula.value !== "") {
+        if(tipoPessoa.checked == true && document.getElementById('curso').value !== "null"){
+            let aluno = new Aluno();
+            aluno.setNome(nome.value);
+            aluno.setEmail(email.value);
+            aluno.setTelefoneFixo(telefoneFixo.value);
+            aluno.setTelefoneCelular(telefoneCelular.value);
+            aluno.setDataNasc(dataNasc.value);
+            aluno.setMatricula(matricula.value);
+            aluno.setCurso(document.getElementById('curso').value);
+    
+            console.log(aluno);
+            alert("Registro inserido com sucesso!\n" + aluno.MostrarInformacoes());
+            alert("Você pode ver o registro do Objeto no Console do navegador.");
+            document.getElementById('redefinir').click();
+        } else if(document.getElementById('area').value !== "" && document.getElementById('lattes').value !== ""){
+            let professor = new Professor();
+            professor.setNome(nome.value);
+            professor.setEmail(email.value);
+            professor.setTelefoneFixo(telefoneFixo.value);
+            professor.setTelefoneCelular(telefoneCelular.value);
+            professor.setDataNasc(dataNasc.value);
+            professor.setMatricula(matricula.value);
+            professor.setAreaAtuacao(document.getElementById('area').value);
+            professor.setLattes(document.getElementById('lattes').value);
+    
+            console.log(professor);
+            alert("Registro inserido com sucesso!\n" + professor.MostrarInformacoes());
+            alert("Você pode ver o registro do Objeto no Console do navegador.");
+            document.getElementById('redefinir').click();
+        }
     } else {
-        let professor = new Professor();
-        professor.setNome(document.getElementById('nome').value);
-        professor.setEmail(document.getElementById('email').value);
-        professor.setTelefoneFixo(document.getElementById('telefoneFixo').value);
-        professor.setTelefoneCelular(document.getElementById('telefoneCelular').value);
-        professor.setDataNasc(document.getElementById('dataNasc').value);
-        professor.setMatricula(document.getElementById('matricula').value);
-        professor.setAreaAtuacao(document.getElementById('area').value);
-        professor.setLattes(document.getElementById('lattes').value);
-
-        console.log(professor);
-        alert("Registro inserido com sucesso!\n" + professor.MostrarInformacoes());
+        alert("Por favor, preencha todos os campos obrigatórios.");
     }
-    alert("Você pode ver o registro do Objeto no Console do navegador.");
 }
 
 function Pessoa () {
