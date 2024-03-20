@@ -14,7 +14,7 @@ function gerarHTML(){
     label_total.setAttribute("class", ""); // Definindo a largura do label
 
     var total = document.createElement("input");
-    total.setAttribute('class', 'col form-control mt-2 text-center'); // Definindo a largura do input
+    total.setAttribute('class', 'col-1 form-control mt-2 text-center'); // Definindo a largura do input
     total.setAttribute("value", "0");
     total.setAttribute('readonly', '');
     
@@ -22,8 +22,8 @@ function gerarHTML(){
     div_total.appendChild(total);
 
     var btn_limpar = document.createElement("button");
-    btn_limpar.setAttribute("class", "col-1 btn btn-secondary mt-2"); // Definindo a largura do botão
-    btn_limpar.innerHTML = "Limpar";
+    btn_limpar.setAttribute("class", "col btn btn-secondary mt-2 mx-1"); // Definindo a largura do botão
+    btn_limpar.innerHTML = " Limpar ";
 
     btn_limpar.onclick = function(){
         total.value = "0";
